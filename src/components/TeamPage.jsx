@@ -21,6 +21,7 @@ const TeamPage = () => {
   const { teamId } = useParams();
   const { url } = useRouteMatch();
   const { loading, team, articles } = useTeamPageData(teamId);
+  console.log('url teampage', url);
 
   if (loading) return <h2>LOADING...</h2>;
   if (!team)
