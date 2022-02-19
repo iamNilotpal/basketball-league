@@ -4,7 +4,7 @@ import slug from 'slug';
 
 function CustomLink({ to, children }) {
   const match = useRouteMatch({ path: to.pathname });
-  console.log('match', match);
+
   return (
     <li style={{ fontWeight: match ? '900' : 'normal' }}>
       <Link to={to}>{children}</Link>
@@ -23,7 +23,10 @@ const SideBar = ({ title, list }) => {
         {list.map((item) => (
           <CustomLink
             key={item}
-            to={{ pathname: `${url}/${slug(item)}`, search: location.search }}
+            to={{
+              pathname: `${url}/${slug(item)}`,
+              search: location.search,
+            }}
           >
             {item.toUpperCase()}
           </CustomLink>
