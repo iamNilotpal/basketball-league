@@ -45,14 +45,14 @@ function Team() {
 
 const Teams = () => {
   const { loading, response: teamNames } = useTeamNames();
-  const { url } = useRouteMatch();
+  const { path } = useRouteMatch();
 
   if (loading) return <h3>LOADING...</h3>;
   return (
     <div className="container two-column">
       <SideBar title="Teams" list={teamNames} />
       <Switch>
-        <Route path={`${url}/:teamId`}>
+        <Route path={`${path}/:teamId`}>
           <Team />
         </Route>
         <Route path="*">
