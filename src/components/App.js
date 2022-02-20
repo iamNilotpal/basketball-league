@@ -5,6 +5,7 @@ import NavBar from './NavBar';
 import Teams from './Teams';
 import Players from './Players';
 import TeamPage from './TeamPage';
+import Articles from './Articles';
 
 export default function App() {
   return (
@@ -22,8 +23,11 @@ export default function App() {
           <Route path="/teams">
             <Teams />
           </Route>
-          <Route path="/:teamId">
+          <Route path="/:teamId" exact>
             <TeamPage />
+          </Route>
+          <Route path="/:teamId/articles/">
+            <Articles />
           </Route>
           <Route path="*">
             <h1 className="text-center">404 - Page Not Found</h1>
