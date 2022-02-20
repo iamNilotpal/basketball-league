@@ -16,7 +16,7 @@ const Loading = ({ text = 'Loading', time = 300 }) => {
   }, [text, time]);
   return (
     <div className="container">
-      <p className="text-center">{content}</p>
+      <h3 className="text-center">{content}</h3>
     </div>
   );
 };
