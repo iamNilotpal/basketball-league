@@ -2,11 +2,12 @@ import React from 'react';
 import TeamLogo from './TeamLogo';
 import { Link } from 'react-router-dom';
 import useTeamNames from '../hooks/useTeamNames';
+import Loading from './Loading';
 
 const Home = () => {
   const { loading, response: teamNames } = useTeamNames();
 
-  if (loading) return null;
+  if (loading) return <Loading />;
   return (
     <div className="container">
       <h2 className="large-header">Hash History BasketBall League</h2>

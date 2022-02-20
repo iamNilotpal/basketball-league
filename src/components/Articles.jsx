@@ -3,12 +3,13 @@ import { useParams, Switch, Route, useRouteMatch } from 'react-router-dom';
 import useArticle from '../hooks/useArticle';
 import useTeamsArticles from '../hooks/useTeamsArticles';
 import SideBar from './SideBar';
+import Loading from './Loading';
 
 function Article() {
   const { articleId, teamId } = useParams();
   const { loading, response: article } = useArticle({ articleId, teamId });
 
-  if (loading) return <h1>LOADING...</h1>;
+  if (loading) return <Loading />;
   if (!article)
     return <h2 className="sidebar-instruction">No Article Found</h2>;
 
@@ -27,7 +28,7 @@ const Articles = () => {
   const { path } = useRouteMatch();
   const { loading, response: articles } = useTeamsArticles(teamId);
 
-  if (loading) return <h1>LOADING...</h1>;
+  if (loading) return <Loading />;
   return (
     <div className="container two-column">
       <SideBar

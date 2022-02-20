@@ -4,6 +4,7 @@ import slug from 'slug';
 import useTeam from '../hooks/useTeam';
 import useTeamArticles from '../hooks/useTeamsArticles';
 import TeamLogo from './TeamLogo';
+import Loading from './Loading';
 
 function useTeamPageData(teamId) {
   const { loading: loadingArticles, response: articles } =
@@ -22,7 +23,7 @@ const TeamPage = () => {
   const { url } = useRouteMatch();
   const { loading, team, articles } = useTeamPageData(teamId);
 
-  if (loading) return <h2>LOADING...</h2>;
+  if (loading) return <Loading />;
   if (!team)
     return <h2 className="sidebar-instruction">No Matching Team Found</h2>;
 

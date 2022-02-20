@@ -11,6 +11,7 @@ import { parse } from 'query-string';
 import usePlayers from '../hooks/usePlayers';
 import SideBar from './SideBar';
 import slug from 'slug';
+import Loading from './Loading';
 
 function Player({ players }) {
   const { playerId } = useParams();
@@ -68,7 +69,7 @@ const Players = () => {
   const team = location.search ? parse(location.search).teamId : null;
   const { loading, response: players } = usePlayers(team);
 
-  if (loading) return <p>LOADING...</p>;
+  if (loading) return <Loading />;
   return (
     <div className="container two-column">
       <SideBar title="Players" list={players.map((player) => player.name)} />
